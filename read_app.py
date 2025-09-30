@@ -48,7 +48,7 @@ df = pd.read_csv(CSV_FILE, usecols=COLUMNS_TO_READ)
 def display_row(row_idx):
     row = df.iloc[row_idx]
 
-    console.rule(f"[bold yellow]Application Row {row_idx+2}[/bold yellow]")
+    console.rule(f"[bold yellow]Application {row_idx} Row {row_idx+2}[/bold yellow]")
 
     idx = 0
     for col, val in row.items():
