@@ -66,18 +66,23 @@ def display_row(row_idx):
 def _parse_args():
     parser = argparse.ArgumentParser(description="View application rows from CSV")
     parser.add_argument(
+        "row_index",
+        type=int,
+        help="Base row index to display",
+    )
+    parser.add_argument(
         "offset",
         nargs="?",
         type=int,
         default=0,
-        help="Optional integer offset added to ROW_INDEX",
+        help="Optional integer offset added to row_index",
     )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = _parse_args()
-    target_index = ROW_INDEX + args.offset
+    target_index = args.row_index + args.offset
     if target_index < 0 or target_index >= len(df):
         console.print(f"[red]Row index out of range:[/red] {target_index}. Valid range is 0 to {len(df)-1}.")
     else:
